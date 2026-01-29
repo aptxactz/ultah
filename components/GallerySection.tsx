@@ -18,6 +18,11 @@ interface Photo {
 const getDriveUrl = (id: string) => `https://lh3.googleusercontent.com/d/${id}=w1000`;
 
 const photos: Photo[] = [
+  // New photos added from user request
+  { id: 101, url: getDriveUrl('1nnpxxzDeTIZK3RNvJDpJpWkrQLIuitMz'), caption: 'Momen Baru 1' },
+  { id: 102, url: getDriveUrl('1qCm2EOpIFvj9nMxGr-HydJsQ0tGyYHB5'), caption: 'Momen Baru 2' },
+  { id: 103, url: getDriveUrl('19-mwvfPSHih6Xjw08XrefX9K-qwMNKtL'), caption: 'Momen Baru 3' },
+  // Existing photos
   { id: 1, url: getDriveUrl('1rS4t7t8u3khV-VArY07WdSaBwJIWNzVw'), caption: 'Momen 1' },
   { id: 2, url: getDriveUrl('1Uq641xmUaciqa7RsMMQOxdlCNJ5vKuN-'), caption: 'Momen 2' },
   { id: 3, url: getDriveUrl('1tQLJOJcI1nTfIno8xiDQgXgMVclCu-1B'), caption: 'Momen 3' },
