@@ -5,6 +5,7 @@ export interface TimeState {
 }
 
 export enum AppState {
+  PIN = 'PIN',
   CLOSED = 'CLOSED',
   OPENING = 'OPENING',
   MESSAGE = 'MESSAGE',

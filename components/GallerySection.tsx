@@ -9,34 +9,38 @@ interface Photo {
 }
 
 /**
- * Endpoint ini biasanya paling stabil untuk menampilkan foto Google Drive di web.
- * Pastikan file di Drive disetting "Anyone with the link" (Siapa saja yang memiliki link).
+ * Cara mendapatkan ID Google Drive:
+ * 1. Upload foto ke Google Drive.
+ * 2. Klik kanan -> Share -> Anyone with the link (Siapa saja yang memiliki link).
+ * 3. Copy linknya, contoh: https://drive.google.com/file/d/1ABC_XYZ123/view
+ * 4. Ambil kode "1ABC_XYZ123" dan masukkan ke daftar di bawah.
  */
 const getDriveUrl = (id: string) => `https://lh3.googleusercontent.com/d/${id}=w1000`;
 
 const photos: Photo[] = [
-  { id: 1, url: getDriveUrl('1rS4t7t8u3khV-VArY07WdSaBwJIWNzVw'), caption: 'Moment 1' },
-  { id: 2, url: getDriveUrl('1Uq641xmUaciqa7RsMMQOxdlCNJ5vKuN-'), caption: 'Moment 2' },
-  { id: 3, url: getDriveUrl('1tQLJOJcI1nTfIno8xiDQgXgMVclCu-1B'), caption: 'Moment 3' },
-  { id: 4, url: getDriveUrl('1LrlyTxEXBUwunVT6hm8Z8oxzi-jP1BQo'), caption: 'Moment 4' },
-  { id: 5, url: getDriveUrl('1y8_smfgYKSno38ziw_pIj7aRvYTLOmrz'), caption: 'Moment 5' },
-  { id: 6, url: getDriveUrl('11XqGNLRII1PJ9u9LhLXBF8mKv6V_lq6q'), caption: 'Moment 6' },
-  { id: 7, url: getDriveUrl('1Ud2Bkj9Q5UB0Cq9uVeG3NvcSsY8CIrwq'), caption: 'Moment 7' },
-  { id: 8, url: getDriveUrl('1NB2gf2TcqrGmuAM-NS8NauWfm1zM2l5G'), caption: 'Moment 8' },
-  { id: 9, url: getDriveUrl('1t9K6wJOrjEahlJhYooDZkJE3QZpgnEGg'), caption: 'Moment 9' },
-  { id: 10, url: getDriveUrl('1kJvqCfOAVmg5aQHhZwcgRHSfUSmDnDxn'), caption: 'Moment 10' },
-  { id: 11, url: getDriveUrl('12sr3SpbmZlfoO3RTz4KJyZJXxzuPX0w7'), caption: 'Moment 11' },
-  { id: 12, url: getDriveUrl('1s61xdssJKaonqsHefpeicGJkiIVVbzgz'), caption: 'Moment 12' },
-  { id: 13, url: getDriveUrl('1I4q_p4y23xm72BgAgihZopeF-DCNbVC1'), caption: 'Moment 13' },
-  { id: 14, url: getDriveUrl('1YJVc661sJ-IzLwAtz0KGjPpFxuO4vxdZ'), caption: 'Moment 14' },
-  { id: 15, url: getDriveUrl('1C9RIvihqUcRolQP-gyCxMrXlj25gxnrq'), caption: 'Moment 15' },
-  { id: 16, url: getDriveUrl('14B48khTuq6j0rFGeK-E8AmyAQx8aaX-P'), caption: 'Moment 16' },
-  { id: 17, url: getDriveUrl('1EF5fiiZaqq2B1df3usLdr22LTbcua4u'), caption: 'Moment 17' },
-  { id: 18, url: getDriveUrl('1PJkKKtA5cmJrkZjViIH26uGDHaXq9jcf'), caption: 'Moment 18' },
+  { id: 1, url: getDriveUrl('1rS4t7t8u3khV-VArY07WdSaBwJIWNzVw'), caption: 'Momen 1' },
+  { id: 2, url: getDriveUrl('1Uq641xmUaciqa7RsMMQOxdlCNJ5vKuN-'), caption: 'Momen 2' },
+  { id: 3, url: getDriveUrl('1tQLJOJcI1nTfIno8xiDQgXgMVclCu-1B'), caption: 'Momen 3' },
+  { id: 4, url: getDriveUrl('1LrlyTxEXBUwunVT6hm8Z8oxzi-jP1BQo'), caption: 'Momen 4' },
+  { id: 5, url: getDriveUrl('1y8_smfgYKSno38ziw_pIj7aRvYTLOmrz'), caption: 'Momen 5' },
+  { id: 6, url: getDriveUrl('11XqGNLRII1PJ9u9LhLXBF8mKv6V_lq6q'), caption: 'Momen 6' },
+  { id: 7, url: getDriveUrl('1Ud2Bkj9Q5UB0Cq9uVeG3NvcSsY8CIrwq'), caption: 'Momen 7' },
+  { id: 8, url: getDriveUrl('1NB2gf2TcqrGmuAM-NS8NauWfm1zM2l5G'), caption: 'Momen 8' },
+  { id: 9, url: getDriveUrl('1t9K6wJOrjEahlJhYooDZkJE3QZpgnEGg'), caption: 'Momen 9' },
+  { id: 10, url: getDriveUrl('1kJvqCfOAVmg5aQHhZwcgRHSfUSmDnDxn'), caption: 'Momen 10' },
+  { id: 11, url: getDriveUrl('12sr3SpbmZlfoO3RTz4KJyZJXxzuPX0w7'), caption: 'Momen 11' },
+  { id: 12, url: getDriveUrl('1s61xdssJKaonqsHefpeicGJkiIVVbzgz'), caption: 'Momen 12' },
+  { id: 13, url: getDriveUrl('1YJVc661sJ-IzLwAtz0KGjPpFxuO4vxdZ'), caption: 'Momen 13' },
+  { id: 14, url: getDriveUrl('1C9RIvihqUcRolQP-gyCxMrXlj25gxnrq'), caption: 'Momen 14' },
+  { id: 15, url: getDriveUrl('14B48khTuq6j0rFGeK-E8AmyAQx8aaX-P'), caption: 'Momen 15' },
+  { id: 16, url: getDriveUrl('1EF5fiiZaqq2B1df3usLdr22LTqbcua4u'), caption: 'Momen 16' },
+  { id: 17, url: getDriveUrl('1PJkKKtA5cmJrkZjViIH26uGDHaXq9jcf'), caption: 'Momen 17' },
 ];
 
 export const GallerySection: React.FC = () => {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
+
+  const closePhoto = () => setSelectedPhoto(null);
 
   return (
     <div className="min-h-screen bg-[#fffcfd] p-6 pb-32 overflow-y-auto">
@@ -75,7 +79,7 @@ export const GallerySection: React.FC = () => {
                   referrerPolicy="no-referrer"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = "https://via.placeholder.com/400x600?text=Klik+Untuk+Melihat+Foto";
+                    target.src = "https://via.placeholder.com/400x600?text=Foto+Masih+Loading...";
                   }}
                 />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20">
@@ -94,26 +98,36 @@ export const GallerySection: React.FC = () => {
 
       {/* Modal Preview */}
       {selectedPhoto && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-[fadeIn_0.3s_ease-out]">
+        <div 
+          onClick={closePhoto}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95 backdrop-blur-md animate-[fadeIn_0.3s_ease-out] cursor-zoom-out"
+        >
           <button 
-            onClick={() => setSelectedPhoto(null)}
-            className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors p-2"
+            onClick={(e) => {
+              e.stopPropagation();
+              closePhoto();
+            }}
+            className="absolute top-4 right-4 text-white/90 hover:text-white transition-colors p-4 bg-white/10 rounded-full hover:bg-white/20 z-[110]"
           >
-            <X className="w-10 h-10" />
+            <X className="w-8 h-8 md:w-10 md:h-10" />
           </button>
           
-          <div className="max-w-4xl w-full flex flex-col items-center animate-[scaleIn_0.4s_cubic-bezier(0.175,0.885,0.32,1.275)]">
-            <div className="bg-white p-2 rounded shadow-2xl relative w-full overflow-hidden">
+          <div 
+            onClick={(e) => e.stopPropagation()} 
+            className="max-w-4xl w-full flex flex-col items-center animate-[scaleIn_0.4s_cubic-bezier(0.175,0.885,0.32,1.275)] cursor-default"
+          >
+            <div className="bg-white p-1 rounded shadow-2xl relative w-full overflow-hidden">
               <img 
                 src={selectedPhoto.url} 
                 alt="Selected Memory" 
-                className="w-full h-auto max-h-[85vh] object-contain rounded"
+                className="w-full h-auto max-h-[80vh] object-contain rounded"
                 crossOrigin="anonymous"
                 referrerPolicy="no-referrer"
               />
             </div>
             <div className="mt-6 text-center text-white px-4">
-              <p className="text-white/40 text-[10px] tracking-[0.4em] uppercase font-black">Memory captured with love</p>
+              <p className="text-white/60 text-[10px] tracking-[0.4em] uppercase font-black mb-2">Memory captured with love</p>
+              <p className="text-white/40 text-xs italic">Ketuk di mana saja untuk menutup</p>
             </div>
           </div>
         </div>
@@ -129,6 +143,10 @@ export const GallerySection: React.FC = () => {
         @keyframes scaleIn {
           from { opacity: 0; transform: scale(0.9) translateY(20px); }
           to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
         }
       `}</style>
     </div>

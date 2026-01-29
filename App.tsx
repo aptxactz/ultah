@@ -5,11 +5,12 @@ import { MessagePage } from './components/MessagePage';
 import { GameSection } from './components/GameSection';
 import { CakeSection } from './components/CakeSection';
 import { GallerySection } from './components/GallerySection';
+import { PinSection } from './components/PinSection';
 import { AppState } from './types';
 import { Music, Music2, Volume2, VolumeX } from 'lucide-react';
 
 const App: React.FC = () => {
-  const [appState, setAppState] = useState<AppState>(AppState.CLOSED);
+  const [appState, setAppState] = useState<AppState>(AppState.PIN);
   const [hearts, setHearts] = useState<{ id: number; left: number; duration: number; size: number }[]>([]);
   const [isMuted, setIsMuted] = useState(false);
   const [audioError, setAudioError] = useState(false);
@@ -18,15 +19,11 @@ const App: React.FC = () => {
   const title = "Untuk Kekasihku Tersayang";
   const messageText = "Selamat ulang tahun, sayangku 🤍 walaupun jarak lagi jahat sama kita, rasa sayang aku ke kamu nggak pernah berkurang sedikit pun. Makasih ya udah jadi rumah buat hati aku, walau lewat layar. Semoga di umur baru ini kamu selalu sehat, bahagia, dan ngerasa dicintai—terutama sama aku. I love you today, tomorrow, and always.";
 
-  /**
-   * Menggunakan Jukehost untuk direct audio streaming yang lebih stabil dibanding Google Drive.
-   */
   const musicUrl = "https://audio.jukehost.co.uk/Di0jCWkn8nxRSxSAP9WavYDTsYiRYWiw"; 
 
   const handleOpen = () => {
     setAppState(AppState.OPENING);
     
-    // Paksa musik berputar segera setelah interaksi user (klik tombol)
     if (audioRef.current) {
       audioRef.current.volume = 0.5;
       const playPromise = audioRef.current.play();
@@ -66,7 +63,7 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (appState !== AppState.CLOSED && appState !== AppState.OPENING) {
+    if (appState !== AppState.PIN && appState !== AppState.CLOSED && appState !== AppState.OPENING) {
       const interval = setInterval(spawnHeart, 1000);
       return () => clearInterval(interval);
     }
@@ -74,6 +71,8 @@ const App: React.FC = () => {
 
   const renderContent = () => {
     switch (appState) {
+      case AppState.PIN:
+        return <PinSection onUnlock={() => setAppState(AppState.CLOSED)} />;
       case AppState.CLOSED:
       case AppState.OPENING:
         return (
@@ -112,7 +111,6 @@ const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-[#fffcfd]">
-      {/* Audio Element dengan direct source */}
       <audio 
         ref={audioRef} 
         loop 
@@ -120,11 +118,9 @@ const App: React.FC = () => {
         crossOrigin="anonymous"
       >
         <source src={musicUrl} type="audio/mpeg" />
-        Your browser does not support the audio element.
       </audio>
 
-      {/* Kontrol Musik & Warning jika gagal */}
-      {appState !== AppState.CLOSED && appState !== AppState.OPENING && (
+      {appState !== AppState.PIN && appState !== AppState.CLOSED && appState !== AppState.OPENING && (
         <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-2">
           {audioError && !isMuted && (
             <div className="bg-rose-100 text-rose-600 text-[10px] px-3 py-1 rounded-full border border-rose-200 animate-pulse">
@@ -147,7 +143,6 @@ const App: React.FC = () => {
         </div>
       )}
 
-      {/* Floating Hearts Animation */}
       {hearts.map(heart => (
         <div
           key={heart.id}
